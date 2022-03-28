@@ -32,6 +32,9 @@ nbactions.xml
 .gradle/
 build/
 
+# target
+target/
+
 # vscode stuff
 .vscode/
 
