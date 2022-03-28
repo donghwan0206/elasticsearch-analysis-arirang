@@ -30,7 +30,12 @@ public class AnalysisArirangPlugin extends Plugin implements AnalysisPlugin, Act
 
     @Override
     public Map<String, AnalysisProvider<TokenFilterFactory>> getTokenFilters() {
-        return singletonMap("arirang_filter", ArirangTokenFilterFactory::new);
+        Map<String, AnalysisProvider<TokenFilterFactory>> tokenFilters = new HashMap<>();
+        tokenFilters.put("arirang_filter", ArirangTokenFilterFactory::new);
+        tokenFilters.put("arirang_wordSegmentFilter", ArirangWordSegmentFilterFactory::new);
+        tokenFilters.put("arirang_punctuationDelimitFilter", ArirangWordSegmentFilterFactory::new);
+
+        return tokenFilters;
     }
 
     @Override
