@@ -9,15 +9,23 @@ import org.elasticsearch.index.IndexSettings;
 public class ArirangTokenFilterFactory extends AbstractTokenFilterFactory {
 
     private boolean bigrammable;
+    private boolean preserveOrigin;
+    private boolean exactMatch;
+    private boolean preserveCNoun;
+    private boolean decompound;
 
     public ArirangTokenFilterFactory(IndexSettings indexSettings, Environment env, String name, Settings settings) {
         super(indexSettings, name, settings);
 
         bigrammable = settings.getAsBoolean("bigrammable", false);
+        preserveOrigin = settings.getAsBoolean("preserveOrigin", true);
+        exactMatch = settings.getAsBoolean("exactMatch", false);
+        preserveCNoun = settings.getAsBoolean("preserveCNoun", true);
+        decompound = settings.getAsBoolean("decompound", true);
     }
 
     @Override
     public TokenStream create(TokenStream tokenStream) {
-        return new KoreanFilter(tokenStream, bigrammable);
+        return new KoreanFilter(tokenStream, bigrammable, preserveOrigin, exactMatch, preserveCNoun, false, decompound);
     }
 }
