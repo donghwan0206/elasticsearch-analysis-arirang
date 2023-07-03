@@ -18,7 +18,7 @@ public class ArirangTokenFilterFactory extends AbstractTokenFilterFactory {
         super(indexSettings, name, settings);
 
         bigrammable = settings.getAsBoolean("bigrammable", false);
-        preserveOrigin = settings.getAsBoolean("preserveOrigin", true);
+        preserveOrigin = settings.getAsBoolean("preserveOrigin", false);
         exactMatch = settings.getAsBoolean("exactMatch", false);
         preserveCNoun = settings.getAsBoolean("preserveCNoun", true);
         decompound = settings.getAsBoolean("decompound", true);
