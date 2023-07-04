@@ -7,7 +7,7 @@
 build-idea/
 # Eclipse and Intellij put there build files in "out"
 out/
-
+target/
 
 # include shared intellij config
 !.idea/scopes/x_pack.xml
